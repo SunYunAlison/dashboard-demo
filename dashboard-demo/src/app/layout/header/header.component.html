@@ -1,0 +1,31 @@
+<div class="header container">
+    <div class="dropDownList flex-items">
+        <mat-form-field appearance="fill">
+            <mat-label>Select an option</mat-label>
+            <mat-select [(value)]="selectedMachine">
+                <mat-option *ngFor="let element of dropDownList" [value]="element">
+                    <a *ngIf="element.machineId != 'All'" [routerLink]="['/page']"
+                        [queryParams]="{id:element.machineId}">{{element.machineName}}</a>
+                    <a *ngIf="element.machineId == 'All'" [routerLink]="['/dashboard']">{{element.machineName}}</a>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="title flex-items">
+        <img src="assets/images/Digitech.png" style="height: 35px">
+        <span>AUO Digitech Dashboard</span>
+    </div>
+    <div class="flex-items">
+        <div class="iconGroup">
+            <a (click)="onScreenCapture()">
+                <i class="bi bi-camera"></i>
+            </a>
+            <i class="bi bi-filetype-csv"></i>
+            <a (click)="onScreenChange()">
+                <i *ngIf="isFullScreen == false" class="bi bi-arrows-fullscreen"></i>
+                <i *ngIf="isFullScreen == true" class="bi bi-fullscreen-exit"></i>
+            </a>
+
+        </div>
+    </div>
+</div>

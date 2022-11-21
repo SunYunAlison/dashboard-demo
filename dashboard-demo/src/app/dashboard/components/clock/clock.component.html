@@ -1,0 +1,29 @@
+<ng-container>
+    <div class="box-wrapper">
+        <div class="box" [@flipState]="flip">
+            <div class="box-side box-front">
+                <div class="chartTitle">
+                    <button mat-raised-button cdkDragHandle class="handle">
+                        <i class="bi bi-arrows-move"></i>
+                    </button>
+                    <div class="title">
+                        <span >{{title}} : {{machineId}}</span>
+                    </div>
+                    <button mat-raised-button class="btn-right" (click)="toggleFlip()">
+                        <i class="bi bi-sliders"></i>
+                    </button>
+                </div>
+                <div class="meterChart" echarts [options]="echartOption"></div>
+            </div>
+            <div class="box-side box-back" [hidden]="flip === 'inactive'">
+                <div style="color: #000000;">
+                    <span>Machine Information</span>
+                    <button mat-raised-button class="btn-right" (click)="toggleFlip()">
+                        <i class="bi bi-sliders"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>

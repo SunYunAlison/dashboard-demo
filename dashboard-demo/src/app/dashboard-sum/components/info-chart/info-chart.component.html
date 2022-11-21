@@ -1,0 +1,32 @@
+<ng-container>
+    <div class="box-wrapper">
+        <div class="box" [@flipState]="flip">
+            <div class="box-side box-front">
+                <div class="chartTitle">
+                    <span class="title">{{title}}</span>
+                    <button mat-raised-button class="btn-right" (click)="toggleFlip()">
+                        <i class="bi bi-sliders"></i>
+                    </button>
+                </div>
+                <div class="info-text">
+                    <p> <span class="sub-title">Machine Name: </span>{{machine.machineName}}</p>
+                    <p> <span class="sub-title">Machine ID: </span>{{machine.machineName}}</p>
+                    <!-- <p>Machine Status: {{sensor.sensorStatus}}</p> -->
+                    <p> <span class="sub-title">Last update: </span>{{machine.updateTime}}</p>
+                </div>
+
+
+
+            </div>
+            <div class="box-side box-back" [hidden]="flip === 'inactive'">
+                <div style="color: #000000;">
+                    <span>Sensor Infomation</span>
+                    <button mat-raised-button class="btn-right" (click)="toggleFlip()">
+                        <i class="bi bi-sliders"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>
